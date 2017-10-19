@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+actor teamleader as "team leader"
+actor boss
+actor employee
+actor storemgmt as "store management"
+
+rectangle system {
+	boss -- (consult all agenda)
+	employee -- (consult own agenda)
+	teamleader -- (consult agenda from his team)
+	teamleader -- (choose assignment algorithm)
+	employee -- (mark task as complete)
+	boss -- (manage tasks)
+	boss -- (trigger assignment computation)
+	boss -- (manage projects)
+}
+employee -- (use resources)
+storemgmt -- (manage resources)
+teamleader -- (mark task as complete)
+(consult agenda from his team) .> (consult own agenda) : include
+(consult all agenda) .> (consult agenda from his team) : include
+boss -- (manage teams)
+@enduml
