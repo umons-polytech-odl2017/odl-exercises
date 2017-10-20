@@ -11,7 +11,7 @@ class Team
 class Resource
 class User
 
-Task -- Agenda
+Agenda - Task
 Project "1" -- "*" Task
 Task "1" -- "*" Resource
 Team "1" -- "*" User : < belong to
