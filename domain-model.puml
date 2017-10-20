@@ -1,0 +1,23 @@
+@startuml
+
+hide empty members
+hide circle
+
+class Agenda
+note bottom: Est-il nécessaire de\ncréer une classe pour\nl'agenda?
+class Task
+class Project
+class Team
+class Resource
+class User
+
+Task -- Agenda
+Project "1" -- "*" Task
+Task "1" -- "*" Resource
+Team "1" -- "*" User : < belong to
+Team "1" -- "1" User : < lead
+
+Task - User
+User "1" - "*" Role
+
+@enduml
