@@ -4,12 +4,12 @@ hide empty members
 hide circle
 
 class Agenda
-note bottom: Est-il nécessaire de\ncréer une classe pour\nl'agenda?
 class Task
 class Project
 class Team
 class Resource
 class User
+class Inventory
 
 Agenda - Task
 Project "1" -- "*" Task
@@ -20,4 +20,5 @@ Team "1" -- "1" User : < lead
 Task - User
 User "1" - "*" Role
 
+Inventory - Resource
 @enduml

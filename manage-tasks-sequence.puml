@@ -1,0 +1,28 @@
+@startuml
+actor Boss
+
+== create task ==
+
+create Task
+Boss -> Task : new(name, description)
+loop
+Boss -> Inventory : findResource(id)
+alt resource exists
+	Inventory --> Boss : resource
+else
+	Boss -> Inventory : createResource()
+	Inventory --> Boss : resource
+end
+Boss -> Task : allocate(resource)
+end
+Boss -> Agenda : store(task)
+
+== update task ==
+
+Boss -> Agenda : findTask()
+Agenda --> Boss
+Boss -> Task : update(description)
+Boss -> Task : getAllocatedResources()
+Boss -> Task : deAllocate(resource)
+
+@enduml
